@@ -30,7 +30,9 @@ class PrestaTest extends PHPUnit_Framework_TestCase {
     protected function tearDown() {
 
     }
-
+    /**
+     * test that ::instance returns a sigleton of Presta
+     */
     public function testInstance() {
         $presta = Presta::instance();
         $this->assertTrue($presta instanceof Presta,
@@ -39,29 +41,40 @@ class PrestaTest extends PHPUnit_Framework_TestCase {
             'two calls to Presta::instance() do NOT refer to the same object');
     }
 
-    /**
-     * @todo Implement testUri().
-     */
     public function testUri() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
+        $this->object->uri('http://example.com');
+        $this->assertEquals(
+            'http://example.com',
+            $this->object->uri,
+            "After setting URI to [http://example.com], getting the URI attribute returned [{$this->object->uri}]"
         );
     }
 
-    /**
-     * @todo Implement testGet().
-     */
     public function testGet() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $response = $this->object->uri('http://example.com')->get();
+        $entity_body = $response->entity_body;
+        $this->assertEquals( ! empty($entity_body), "No Entity Body returned");
+        $this->assertTrue($response->header('status_code')=='200',
+            "Response code expected 200, found [".$response->header('status_code')."]");
     }
 
-    /**
-     * @todo Implement testPost().
-     */
+    public function testHead() {
+        $response = $this->object->uri('http://example.com')->head();
+        $entity_body = $response->entity_body;
+        $this->assertEquals( empty($entity_body), "Entity Body returned, expected empty");
+        $this->assertTrue($response->header('status_code')=='200',
+            "Response code expected 200, found [".$response->header('status_code')."]");
+    }
+
+    public function testOptions() {
+        $response = $this->object->uri('http://example.com')->options();
+        $entity_body = $response->entity_body;
+        $this->assertEquals( empty($entity_body), "Entity Body returned, expected empty");
+        $this->assertTrue($response->header('status_code')=='200',
+            "Response code expected 200, found [".$response->header('status_code')."]");
+        $this->assertArrayHasKey('allow', $response->headers,"expected 'allow' header not found");
+    }
+
     public function testPost() {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
@@ -83,16 +96,6 @@ class PrestaTest extends PHPUnit_Framework_TestCase {
      * @todo Implement testDelete().
      */
     public function testDelete() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     * @todo Implement testHead().
-     */
-    public function testHead() {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
                 'This test has not been implemented yet.'
