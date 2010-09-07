@@ -1,32 +1,21 @@
 <?php
-
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Resonse Class
+ *
  */
 
 /**
- * Description of response
+ * Very simple class to wrap the HTTP response.
  *
  * @author sam
  */
 class Response {
 
-    private $attributes = array(
-        'entity_body' => null, // the entity body of the http response
-        'headers' => array(),  // the entity headers of the http response
-        'info' => array()      // the response info array returned by curl
-    );
-    private $getable_attributes = array('entity_body', 'headers', 'info');
+    private $attributes = array();
 
     public function __construct($curler_response)
     {
-        $this->attributes['entity_body'] = isset($curler_response['entity_body'])
-            ? $curler_response['entity_body'] : null;
-        $this->attributes['headers'] = isset($curler_response['headers'])
-            ? $curler_response['headers'] : null;
-        $this->attributes['info'] = isset($curler_response['info'])
-            ? $curler_response['info'] : null;
+        $this->attributes = $curler_response;
     }
 
     /**
@@ -38,20 +27,24 @@ class Response {
     public function header($header_key)
     {
         $result = null;
-        if(key_exists($header_key, $this->attributes['headers'])) {
+        if(array_key_exists($header_key, $this->attributes['headers'])) {
             $result = $this->attributes['headers'][$header_key];
         }
         return $result;
     }
-
+    /**
+     *
+     * @return array The attributes available in this class
+     */
+    public function attributes()
+    {
+        return array_keys($this->attributes);
+    }
     public function  __get($name)
     {
-        $result = null;
-        if(in_array($name, $this->getable_attributes)) {
-            $result = $this->attributes[$name];
-        }
-        return $result;
+        return isset($this->attributes[$name])
+            ? $this->attributes[$name]
+            : trigger_error("Attempt to access unknown attribute: [{$name}]", E_USER_NOTICE);
     }
 
 }
-?>
