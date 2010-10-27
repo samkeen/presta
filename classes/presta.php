@@ -136,6 +136,17 @@ class Presta {
         $this->attributes['uri'] = $uri_string;
         return $this;
     }
+	/**
+	 *
+	 * @param string $username
+	 * @param string $password
+	 * @return Presta
+	 */
+	public function auth($username, $password)
+	{
+		$this->curl_opts[CURLOPT_USERPWD] = "{$username}:{$password}";
+		return $this;
+	}
 
     /**
      * Allow the entity headers to be set for the request

@@ -50,6 +50,14 @@ class PrestaTest extends PHPUnit_Framework_TestCase {
         );
     }
 
+	public function testAuth() {
+        $response = $this->object->uri('http://example.com')->auth('go','go')->get();
+        $entity_body = $response->entity_body;
+        $this->assertEquals( ! empty($entity_body), "No Entity Body returned");
+        $this->assertTrue($response->status_code=='200',
+            "Response code expected 200, found [".$response->header('status_code')."]");
+    }
+
     public function testGet() {
         $response = $this->object->uri('http://example.com')->get();
         $entity_body = $response->entity_body;
