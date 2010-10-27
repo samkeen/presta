@@ -73,6 +73,7 @@ require "{$base}/response.php";
 
 class Presta {
 
+	// @todo still not sure if I'll enable these.
     private $shortnames = array(
         "fail_on_error" => 45, //CURLOPT_FAILONERROR
         "follow_location" => 52, //CURLOPT_FOLLOWLOCATION
