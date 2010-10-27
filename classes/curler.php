@@ -38,7 +38,7 @@ class Curler {
     {
         $http_method = strtoupper($http_method);
         $handle = curl_init($url); // initialize curl handle
-        $curl_opts = self::sanitize_curlopts($curl_opts);
+//        $curl_opts = self::sanitize_curlopts($curl_opts);
         /*
          * take the union of the input curl_opts and our defauls, allowing the
          * input to override the defaults
@@ -114,7 +114,7 @@ class Curler {
     {
         $response = array('headers'=>null, 'entity_body' => null);
         if ($with_headers) {
-            $processed_headers = null;
+            $processed_headers = array();
             $response_parts = preg_split('/\r?\n\r?\n/', $http_response);
             // find the dividing index between header and content
             /**

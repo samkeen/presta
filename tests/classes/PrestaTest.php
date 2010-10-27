@@ -54,7 +54,7 @@ class PrestaTest extends PHPUnit_Framework_TestCase {
         $response = $this->object->uri('http://example.com')->get();
         $entity_body = $response->entity_body;
         $this->assertEquals( ! empty($entity_body), "No Entity Body returned");
-        $this->assertTrue($response->header('status_code')=='200',
+        $this->assertTrue($response->status_code=='200',
             "Response code expected 200, found [".$response->header('status_code')."]");
     }
 
@@ -62,7 +62,7 @@ class PrestaTest extends PHPUnit_Framework_TestCase {
         $response = $this->object->uri('http://example.com')->head();
         $entity_body = $response->entity_body;
         $this->assertEquals( empty($entity_body), "Entity Body returned, expected empty");
-        $this->assertTrue($response->header('status_code')=='200',
+        $this->assertTrue($response->status_code=='200',
             "Response code expected 200, found [".$response->header('status_code')."]");
     }
 
@@ -70,7 +70,7 @@ class PrestaTest extends PHPUnit_Framework_TestCase {
         $response = $this->object->uri('http://example.com')->options();
         $entity_body = $response->entity_body;
         $this->assertEquals( empty($entity_body), "Entity Body returned, expected empty");
-        $this->assertTrue($response->header('status_code')=='200',
+        $this->assertTrue($response->status_code=='200',
             "Response code expected 200, found [".$response->header('status_code')."]");
         $this->assertArrayHasKey('allow', $response->headers,"expected 'allow' header not found");
     }
