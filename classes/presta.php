@@ -211,8 +211,8 @@ class Presta {
         return new Response(Curler::xmit(
                         $http_method,
                         $this->attributes['uri'], // set by $this->uri('...')
-                        $this->attributes['entity_headers'], // set by $this->headers(array)
                         $this->curl_opts, // set by $this->instance(array)
+                        $this->attributes['entity_headers'], // set by $this->headers(array)
                         $entity_body
         ));
     }
