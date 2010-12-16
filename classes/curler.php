@@ -11,7 +11,6 @@
  *        This will keep casual users from having to look up CURL OPT codes, but
  *        we will still accept Actual codes for the more experienced users
  * 
-
  *
  *
  * @author @samkeen
@@ -129,10 +128,19 @@ class Curler {
             $headers = preg_split('/[\r?\n]+/', $headers);
             // extract first line containing HTTP version, status code/label
             $status_code = array();
-            preg_match('/^(.*)\s+(\d\d\d)\s+(.*)$/', array_shift($headers), $status_code);
-            $response['http_version'] = Arr::get(1, $status_code);
-            $response['status_code']  = Arr::get(2, $status_code);
-            $response['status_label'] = Arr::get(3, $status_code);
+            $status_code = array();
+            while(preg_match('/^(.*)\s+(\d\d\d)\s+(.*)$/', array_shift($headers), $status_code))
+            {
+                $response['processed_status_codes'][] = array(
+                    'http_version'    => Arr::get(1, $status_code),
+                    'status_code'     => Arr::get(2, $status_code),
+                    'status_label'    => Arr::get(3, $status_code),
+                );
+            }
+            $last_status = end($response['processed_status_codes']);
+            $response['http_version'] = Arr::get('http_version', $last_status);
+            $response['status_code']  = Arr::get('status_code', $last_status);
+            $response['status_label'] = Arr::get('status_label', $last_status);
             // parse the rest of the headers into an array
             foreach ($headers as $header) {
                 $header = explode(':', $header, 2);
