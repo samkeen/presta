@@ -3,20 +3,20 @@
  *
  * This Class is completly static
  * Handle Network Level Errors here (HTTP errors handled in Presta class)
- * 
+ *
  */
 
 /**
  * @tdo Look through these and provide shortcut names for the most common ones.
  *        This will keep casual users from having to look up CURL OPT codes, but
  *        we will still accept Actual codes for the more experienced users
- * 
+ *
  *
  *
  * @author @samkeen
  */
 class Curler {
-    
+
 
     private static $default_curl_opts = array(
         CURLOPT_HEADER => 1,
@@ -31,7 +31,7 @@ class Curler {
      * @param array $entity_headers
      * @param array $entity_body
      * @return array
-     *  
+     *
      */
     public static function xmit($http_method, $url, array $curl_opts=array(), array $entity_headers=null, $entity_body=null)
     {
@@ -50,6 +50,7 @@ class Curler {
         if ($entity_headers) {
             curl_setopt($handle, CURLOPT_HTTPHEADER, $entity_headers);
         }
+		$put_data_file = null;
         switch ($http_method) {
             case 'GET':
                 break;
@@ -62,7 +63,12 @@ class Curler {
             case 'PUT':
                 curl_setopt($handle, CURLOPT_PUT, 1);
                 if ($entity_body) {
-                    curl_setopt($handle, CURLOPT_POSTFIELDS, $entity_body);
+					/* Prepare the data for HTTP PUT. */
+					$put_data_file = tmpfile();
+					fwrite($put_data_file, $entity_body);
+					fseek($put_data_file, 0);
+					curl_setopt($handle, CURLOPT_INFILE, $put_data_file);
+					curl_setopt($handle, CURLOPT_INFILESIZE, strlen($entity_body));
                 }
                 break;
             case 'DELETE':
@@ -80,6 +86,7 @@ class Curler {
         }
 
         $http_response = curl_exec($handle);
+		$put_data_file?fclose($put_data_file):null;
         if ($http_response === false) { // some sort od Network level failure
             throw new Exception("HTTP Communication Failed: Curl Error Number [".curl_errno($handle)."] : ".curl_error($handle));
         }
@@ -96,8 +103,8 @@ class Curler {
     /**
      * Pick the response apart.
      * Separate the Headers from the Enitiy Body if both were returned.
-     * 
-     * Tokenize headers into an array, 
+     *
+     * Tokenize headers into an array,
      * @param string $http_response
      * @param boolean $with_headers
      * @return array
@@ -153,10 +160,10 @@ class Curler {
                     }
                 }
             }
-            $response['headers'] = is_array($processed_headers) 
+            $response['headers'] = is_array($processed_headers)
                 ? array_change_key_case($processed_headers, CASE_LOWER)
                 : $processed_headers;
-            $response['entity_body'] = Arr::get(1, $response_parts);
+            $response['entity_body'] = end($response_parts);
         } else {
             $response['entity_body'] = $http_response;
         }
