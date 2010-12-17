@@ -75,7 +75,7 @@ They would typically be used in the order listed below.
 
 ## change log
 
-### v0.0.4 : implemented support for PUT
+### v0.1.0 : implemented support for PUT
 ### v0.0.3 : minor bug fixes and docs
 ### v0.0.2 : added ->auth() to presta object
 ### v0.0.1 : initial usable version
