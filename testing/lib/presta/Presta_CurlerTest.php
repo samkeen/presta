@@ -1,5 +1,6 @@
 <?php
 require_once dirname(__FILE__) . '/../../PrestaTestBase.php';
+require_once dirname(__FILE__) . '/../../../lib/util/Arr.php';
 require_once dirname(__FILE__) . '/../../../lib/presta/Curler.php';
 
 /**
@@ -32,14 +33,19 @@ class Presta_CurlerTest extends PrestaTestBase {
     /**
      * @todo Implement testXmit().
      */
-    public function testXmit() {
+    public function testParse_Header_Block() {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
                 'This test has not been implemented yet.'
         );
     }
 
-    public function testParse_Response_ProperKeys() {
+
+    #####################################################
+    #### ==== parse_response(TWO-header-blocks) ==== ####
+    #####################################################
+
+    public function testParse_Response_2Header_ProperKeys() {
         $http_response = $this->mock_http_resp('two-header-blocks');
         $parsed = $this->curler->parse_response($http_response, $with_headers=true);
         $this->assertArrayHasKey('headers', $parsed);
@@ -49,14 +55,14 @@ class Presta_CurlerTest extends PrestaTestBase {
         $this->assertArrayHasKey('status_code', $parsed);
         $this->assertArrayHasKey('status_label', $parsed);
     }
-    public function testParse_Response_ProperHTTPDeclarationElements() {
+    public function testParse_Response_2Header_ProperHTTPDeclarationElements() {
         $http_response = $this->mock_http_resp('two-header-blocks');
         $parsed = $this->curler->parse_response($http_response, $with_headers=true);
         $this->assertEquals('HTTP/1.1', $parsed['http_version']);
         $this->assertEquals('200', $parsed['status_code']);
         $this->assertEquals('OK', $parsed['status_label']);
     }
-    public function testParse_Response_ProperHeader_Blocks() {
+    public function testParse_Response_2Header_ProperHeader_Blocks() {
         $http_response = $this->mock_http_resp('two-header-blocks');
         $parsed = $this->curler->parse_response($http_response, $with_headers=true);
 
@@ -74,4 +80,100 @@ class Presta_CurlerTest extends PrestaTestBase {
         $this->assertNotEmpty($final_block['raw']);
     }
 
+    public function testParse_Response_2Header_ProperHeaders() {
+        $http_response = $this->mock_http_resp('two-header-blocks');
+        $parsed = $this->curler->parse_response($http_response, $with_headers=true);
+        $headers = $parsed['headers'];
+        $this->assertEquals('Apache/2.0.63 (CentOS)', $headers['server']);
+        $this->assertEquals('bytes', $headers['accept-ranges']);
+        $this->assertEquals('text/html; charset=UTF-8', $headers['content-type']);
+        $this->assertEquals('close', $headers['connection']);
+        $this->assertEquals('Mon, 31 Jan 2011 05:12:26 GMT', $headers['date']);
+        $this->assertEquals('5', $headers['age']);
+        $this->assertEquals('3067', $headers['content-length']);
+    }
+    public function testParse_Response_2Header_BodyNotEmpty() {
+        $http_response = $this->mock_http_resp('two-header-blocks');
+        $parsed = $this->curler->parse_response($http_response, $with_headers=true);
+        $this->assertNotEmpty($parsed['entity_body']);
+    }
+
+    #####################################################
+    #### ==== parse_response(ONE-header-block) ==== ####
+    #####################################################
+
+    public function testParse_Response_1Header_ProperKeys() {
+        $http_response = $this->mock_http_resp('one-header-block');
+        $parsed = $this->curler->parse_response($http_response, $with_headers=true);
+        $this->assertArrayHasKey('headers', $parsed);
+        $this->assertArrayHasKey('header_blocks', $parsed);
+        $this->assertArrayHasKey('entity_body', $parsed);
+        $this->assertArrayHasKey('http_version', $parsed);
+        $this->assertArrayHasKey('status_code', $parsed);
+        $this->assertArrayHasKey('status_label', $parsed);
+    }
+    public function testParse_Response_1Header_ProperHTTPDeclarationElements() {
+        $http_response = $this->mock_http_resp('one-header-block');
+        $parsed = $this->curler->parse_response($http_response, $with_headers=true);
+        $this->assertEquals('HTTP/1.1', $parsed['http_version']);
+        $this->assertEquals('200', $parsed['status_code']);
+        $this->assertEquals('OK', $parsed['status_label']);
+    }
+    public function testParse_Response_1Header_ProperHeader_Blocks() {
+        $http_response = $this->mock_http_resp('one-header-block');
+        $parsed = $this->curler->parse_response($http_response, $with_headers=true);
+
+        $this->assertEquals(1, count($parsed['header_blocks']));
+
+        $final_block = $parsed['header_blocks'][0];
+        $this->assertEquals('HTTP/1.1', $final_block['http_version']);
+        $this->assertEquals('200', $final_block['status_code']);
+        $this->assertEquals('OK', $final_block['status_label']);
+        $this->assertNotEmpty($final_block['raw']);
+    }
+
+    public function testParse_Response_1Header_ProperHeaders() {
+        $http_response = $this->mock_http_resp('one-header-block');
+        $parsed = $this->curler->parse_response($http_response, $with_headers=true);
+        $headers = $parsed['headers'];
+        $this->assertEquals('Apache/2.0.63 (CentOS)', $headers['server']);
+        $this->assertEquals('bytes', $headers['accept-ranges']);
+        $this->assertEquals('text/html; charset=UTF-8', $headers['content-type']);
+        $this->assertEquals('close', $headers['connection']);
+        $this->assertEquals('Mon, 31 Jan 2011 05:12:26 GMT', $headers['date']);
+        $this->assertEquals('5', $headers['age']);
+        $this->assertEquals('3067', $headers['content-length']);
+    }
+    public function testParse_Response_1Header_BodyNotEmpty() {
+        $http_response = $this->mock_http_resp('one-header-block');
+        $parsed = $this->curler->parse_response($http_response, $with_headers=true);
+        $this->assertNotEmpty($parsed['entity_body']);
+    }
+
+    ############################################################
+    #### ==== parse_response(ONE-header-block-NO-body) ==== ####
+    ############################################################
+    public function testParse_Response_1Header_NoBody_ProperKeys() {
+        $http_response = $this->mock_http_resp('one-header-block-no-body');
+        $parsed = $this->curler->parse_response($http_response, $with_headers=true);
+        $this->assertArrayHasKey('headers', $parsed);
+        $this->assertArrayHasKey('header_blocks', $parsed);
+        $this->assertArrayHasKey('entity_body', $parsed);
+        $this->assertArrayHasKey('http_version', $parsed);
+        $this->assertArrayHasKey('status_code', $parsed);
+        $this->assertArrayHasKey('status_label', $parsed);
+    }
+    public function testParse_Response_1Header_NoBody_ProperHTTPDeclarationElements() {
+        $http_response = $this->mock_http_resp('one-header-block-no-body');
+        $parsed = $this->curler->parse_response($http_response, $with_headers=true);
+        $this->assertEquals('HTTP/1.1', $parsed['http_version']);
+        $this->assertEquals('200', $parsed['status_code']);
+        $this->assertEquals('OK', $parsed['status_label']);
+    }
+
+    public function testParse_Response_1Header_NoBody_BodyIsEmpty() {
+        $http_response = $this->mock_http_resp('one-header-block-no-body');
+        $parsed = $this->curler->parse_response($http_response, $with_headers=true);
+        $this->assertEmpty($parsed['entity_body']);
+    }
 }
