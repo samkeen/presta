@@ -9,7 +9,7 @@
  * @author samkeen
  */
 
-class Arr {
+class Util_Arr {
 
     /**
      * Safe array getter method for those of us how tire of isset(...)?...:...;

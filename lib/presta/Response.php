@@ -9,7 +9,7 @@
  *
  * @author sam
  */
-class Response {
+class Presta_Response {
 
     private $attributes = array();
 

@@ -67,11 +67,11 @@
  *      )
  */
 $base = dirname(__FILE__);
-require "{$base}/curler.php";
-require "{$base}/presta_util.php";
-require "{$base}/response.php";
+require "{$base}/Curler.php";
+require "{$base}/../util/Arr.php";
+require "{$base}/Response.php";
 
-class Presta {
+class Presta_Request {
 
 	// @todo still not sure if I'll enable these.
     private $shortnames = array(
@@ -109,7 +109,7 @@ class Presta {
     private $getable_attributes = array('uri');
     private $curl_opts = array();
 
-    public function __construct(array $curl_opts)
+    public function __construct(array $curl_opts = array())
     {
         // @TODO set defaults, look for Presta globals
         $this->curl_opts = $this->normalize_curlopts($curl_opts);
@@ -208,12 +208,12 @@ class Presta {
      */
     private function http_xmit($http_method, $entity_body = null)
     {
-        return new Response(Curler::xmit(
-                        $http_method,
-                        $this->attributes['uri'], // set by $this->uri('...')
-                        $this->curl_opts, // set by $this->instance(array)
-                        $this->attributes['entity_headers'], // set by $this->headers(array)
-                        $entity_body
+        return new Presta_Response(Presta_Curler::xmit(
+            $http_method,
+            $this->attributes['uri'], // set by $this->uri('...')
+            $this->curl_opts, // set by $this->instance(array)
+            $this->attributes['entity_headers'], // set by $this->headers(array)
+            $entity_body
         ));
     }
 
@@ -226,10 +226,10 @@ class Presta {
         $sanitized_ops = array();
         foreach ($curl_ops as $op_key => $op_value) {
             if( ! is_int($op_key)) {
-                if( ! Arr::get($op_key, $this->shortnames)) {
+                if( ! Util_Arr::get($op_key, $this->shortnames)) {
                     throw new Exception("Unrecognized curl option: [{$op_key}]");
                 }
-                $sanitized_ops[Arr::get($op_key, $this->shortnames)] = $op_value;
+                $sanitized_ops[Util_Arr::get($op_key, $this->shortnames)] = $op_value;
             } else {
                 $sanitized_ops[$op_key] = $op_value;
             }

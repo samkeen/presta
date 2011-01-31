@@ -2,7 +2,7 @@
 
 require_once 'PHPUnit/Framework.php';
 
-require_once dirname(__FILE__) . '/../../classes/presta.php';
+require_once dirname(__FILE__) . '/../../lib/presta.php';
 
 /**
  * Test class for Presta.

@@ -10,7 +10,7 @@
  *
  * @author samkeen
  */
-class MinimumsMet {
+class Presta_Requirements {
     
     const MIN_PHP_VERSION = '5.1.3';
 
@@ -18,7 +18,7 @@ class MinimumsMet {
      * If you are not sure what PHP calls your extention, run this:
      * <?php print_r(get_loaded_extensions()); ?>
      */
-    private $required_extensions = array('curl');
+    private static $required_extensions = array('curl');
 
     /**
      * Checks if we have the minimum requirements for this library.
@@ -28,8 +28,8 @@ class MinimumsMet {
     public static function check()
     {
         $loaded_extensions = array_map('strtolower',get_loaded_extensions());
-        $this->required_extensions = array_map('strtolower',  $this->required_extensions);
-        foreach ($this->required_extensions as $required_ext)
+        self::$required_extensions = array_map('strtolower',  self::$required_extensions);
+        foreach (self::$required_extensions as $required_ext)
         {
             if (!in_array($required_ext, $loaded_extensions))
             {
