@@ -213,6 +213,5 @@ class Presta_Curler {
             ? array_change_key_case($processed_headers, CASE_LOWER)
             : $processed_headers;
         return $parsed_header_block;
-        
     }
 }

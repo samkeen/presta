@@ -11,14 +11,14 @@ class Presta_RequirementsTest extends PrestaTestBase {
     /**
      * @var Presta_Requirements
      */
-    protected $object;
+    protected $requirements;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
     protected function setUp() {
-        $this->object = new Presta_Requirements;
+        $this->requirements = new Presta_Requirements;
     }
 
     /**
@@ -33,10 +33,8 @@ class Presta_RequirementsTest extends PrestaTestBase {
      * @todo Implement testCheck().
      */
     public function testCheck() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $result = $this->requirements->check();
+        $this->assertTrue(is_bool($result));
     }
 
 }
