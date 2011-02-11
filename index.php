@@ -1,7 +1,6 @@
 <?php
 /* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Simple setup file, Runs requirements check.  Will add more detail later 
  */
 require "lib/presta/Requirements.php";
 $mm = new Presta_Requirements();
