@@ -42,7 +42,7 @@ class Presta_Response {
     }
     public function  __get($name)
     {
-        return isset($this->attributes[$name])
+        return array_key_exists($name, $this->attributes)
             ? $this->attributes[$name]
             : trigger_error("Attempt to access unknown attribute: [{$name}]", E_USER_NOTICE);
     }
