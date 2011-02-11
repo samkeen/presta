@@ -36,6 +36,11 @@ class Presta_Curler {
      */
     public static function xmit($http_method, $url, array $curl_opts=array(), array $entity_headers=null, $entity_body=null)
     {
+        if( ! $url)
+        {
+            throw new Exception("URI cannot be empty");
+        }
+        
         $http_method = strtoupper($http_method);
         $handle = curl_init($url); // initialize curl handle
 //        $curl_opts = self::sanitize_curlopts($curl_opts);
@@ -87,11 +92,12 @@ class Presta_Curler {
         }
 
         $http_response = curl_exec($handle);
-	$put_data_file ? fclose($put_data_file) : null;
+        $response_info = curl_getinfo($handle);
+        $put_data_file ? fclose($put_data_file) : null;
         if ($http_response === false) { // some sort od Network level failure
             throw new Exception("HTTP Communication Failed: Curl Error Number [".curl_errno($handle)."] : ".curl_error($handle));
         }
-        $response_info = curl_getinfo($handle);
+        
         curl_close($handle);
         $response_has_headers = $http_method=='HEAD'
                                  ||
