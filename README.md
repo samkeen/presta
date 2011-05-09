@@ -1,5 +1,7 @@
 # Presta documentation
 
+## Description
+
 Presta is a simple library that applies a thin abstraction around the PHP Curl extension.  This abstraction allows you to make http requests (GET, POST, PUT, DELETE) easily and makes the code that is sending those requests very readable.
 
 ## Usage Examples
