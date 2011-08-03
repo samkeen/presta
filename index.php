@@ -8,3 +8,12 @@ phpinfo();
 //require "lib/presta/Requirements.php";
 //$mm = new Presta_Requirements();
 //echo $mm->check();
+
+/*
+ * testing git ^M issues
+ * is it
+ * me
+ * or
+ * git
+ * ??
+ */
