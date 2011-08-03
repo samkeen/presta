@@ -73,38 +73,6 @@ require "{$base}/Response.php";
 
 class Presta_Request {
 
-	// @todo still not sure if I'll enable these.
-    private $shortnames = array(
-        "fail_on_error" => 45, //CURLOPT_FAILONERROR
-        "follow_location" => 52, //CURLOPT_FOLLOWLOCATION
-        "max_redirects" => 68, //CURLOPT_MAXREDIRS
-        "max_connections" => 71, //CURLOPT_MAXCONNECTS
-        "credentials" => 10005, //CURLOPT_USERPWD
-        "proxy_credentials" => 10006, //CURLOPT_PROXYUSERPWD
-        "timeout" => 13, //CURLOPT_TIMEOUT
-        "referer" => 10016, //CURLOPT_REFERER
-        "user_agent" => 10018, //CURLOPT_USERAGENT
-        "cookie" => 10022, //CURLOPT_COOKIE
-        "cookie_session" => 96, //CURLOPT_COOKIESESSION
-        "ssl_cert" => 10025, //CURLOPT_SSLCERT
-        "ssl_cert_pw" => 10026, //CURLOPT_SSLCERTPASSWD
-        "ssl_cert_password" => 10026, //CURLOPT_SSLCERTPASSWD
-        "ssl_verify_host" => 81, //CURLOPT_SSL_VERIFYHOST
-        "ssl_verify_peer" => 64, //CURLOPT_SSL_VERIFYPEER
-        "connection_timeout" => 78, //CURLOPT_CONNECTTIMEOUT
-        "cookie_jar" => 10082, //CURLOPT_COOKIEJAR
-        "proxy_type" => 101, //CURLOPT_PROXYTYPE
-        "buffer_size" => 98, //CURLOPT_BUFFERSIZE
-        "http_version" => 84, //CURLOPT_HTTP_VERSION
-        "ssl_key" => 10087, //CURLOPT_SSLKEY
-        "ssl_key_type" => 10088, //CURLOPT_SSLKEYTYPE
-        "ssl_key_pw" => 10026, //CURLOPT_SSLKEYPASSWD
-        "ssl_key_password" => 10026, //CURLOPT_SSLKEYPASSWD
-        "ssl_engine" => 10089, //CURLOPT_SSLENGINE
-        "ssl_engine_default" => 90, //CURLOPT_SSLENGINE_DEFAULT
-        "ssl_cert_type" => 10086, //CURLOPT_SSLCERTTYPE
-    );
-
     private $attributes = array('uri' => array(), 'entity_headers' => array());
     private $getable_attributes = array('uri');
     private $curl_opts = array();
@@ -112,7 +80,7 @@ class Presta_Request {
     public function __construct(array $curl_opts = array())
     {
         // @TODO set defaults, look for Presta globals
-        $this->curl_opts = $this->normalize_curlopts($curl_opts);
+        $this->curl_opts = $curl_opts;
     }
 
     /**
@@ -215,28 +183,6 @@ class Presta_Request {
             $this->attributes['entity_headers'], // set by $this->headers(array)
             $entity_body
         ));
-    }
-
-    /**
-     *
-     * @param array $curl_ops
-     */
-    private static function normalize_curlopts(array $curl_ops)
-    {
-        $sanitized_ops = array();
-        foreach ($curl_ops as $op_key => $op_value) {
-            if( ! is_int($op_key)) {
-                if( ! Util_Arr::get($op_key, $this->shortnames)) {
-                    throw new Exception("Unrecognized curl option: [{$op_key}]");
-                }
-                $sanitized_ops[Util_Arr::get($op_key, $this->shortnames)] = $op_value;
-            } else {
-                $sanitized_ops[$op_key] = $op_value;
-            }
-            $sanitized_op_name = substr($op_key, 0, 8)=='CURLOPT_' ? $op_key : "CURLOPT_{$op_key}";
-            $sanitized_ops[$sanitized_op_name] = $op_value;
-        }
-        return $sanitized_ops;
     }
 
 }
