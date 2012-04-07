@@ -75,5 +75,5 @@
     <text xml:space="preserve" style="font-size:9px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#2e3436;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:URW Chancery L" x="313.30417" y="246.10596" id="text2692"><tspan sodipodi:role="line" id="tspan2694" x="313.30417" y="246.10596" style="font-size:9px;font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#2e3436;font-family:Arial; Italic">Generated  by PHP_Depend</tspan></text>
     
     
-  <ellipse sodipodi:ry="15" sodipodi:rx="15" sodipodi:cy="15" sodipodi:cx="15" id="pdepend_4f7fd55d49402" style="fill:url(#jdepend.good.gradient);stroke:none" ry="15" rx="15" cy="15" cx="15" transform="matrix(1, 0, 0, 1, 35, 5)" title="+global"/></g>
+  <ellipse sodipodi:ry="15" sodipodi:rx="15" sodipodi:cy="15" sodipodi:cx="15" id="pdepend_4f80836d175a0" style="fill:url(#jdepend.bad.gradient);stroke:none" ry="15" rx="15" cy="15" cx="15" transform="matrix(0.33333333333333, 0, 0, 0.33333333333333, 45, 205)" title="Presta\Util"/><ellipse sodipodi:ry="15" sodipodi:rx="15" sodipodi:cy="15" sodipodi:cx="15" id="pdepend_4f80836d175df" style="fill:url(#jdepend.good.gradient);stroke:none" ry="15" rx="15" cy="15" cx="15" transform="matrix(1, 0, 0, 1, 35, 5)" title="Presta"/></g>
 </svg>

@@ -6,11 +6,10 @@ spl_autoload_register(
       static $classes = null;
       if ($classes === null) {
          $classes = array(
-            'presta_curlertest' => '/CurlerTest.php',
-                'presta_responsetest' => '/ResponseTest.php',
-                'prestatestbase' => '/PrestaTestBase.php',
-                'requesttest' => '/RequestTest.php',
-                'util_arrtest' => '/Util_ArrTest.php'
+            'presta\\prestatestbase' => '/PrestaTestBase.php',
+                'presta\\requesttest' => '/RequestTest.php',
+                'presta\\responsetest' => '/ResponseTest.php',
+                'presta\\util\\arrtest' => '/util/ArrTest.php'
           );
       }
       $cn = strtolower($class);

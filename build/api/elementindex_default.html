@@ -25,6 +25,9 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr valign="top">
     <td width="200" class="menu">
+	<div id="todolist">
+			<p><a href="todolist.html">Todo List</a></p>
+	</div>
       <b>Packages:</b><br />
               <a href="li_default.html">default</a><br />
             <br /><br />
@@ -43,10 +46,10 @@
       
             <b>Classes:</b><br />
         <div class="package">
-		    		<a href="default/Presta_Curler.html">Presta_Curler</a><br />
-	    		<a href="default/Presta_Request.html">Presta_Request</a><br />
-	    		<a href="default/Presta_Response.html">Presta_Response</a><br />
-	    		<a href="default/Util_Arr.html">Util_Arr</a><br />
+		    		<a href="default/Arr.html">Arr</a><br />
+	    		<a href="default/Curler.html">Curler</a><br />
+	    		<a href="default/Request.html">Request</a><br />
+	    		<a href="default/Response.html">Response</a><br />
 	  </div>
                 </td>
     <td>
@@ -60,11 +63,11 @@
 	[ <a href="elementindex_default.html#g">g</a> ]
 	[ <a href="elementindex_default.html#h">h</a> ]
 	[ <a href="elementindex_default.html#i">i</a> ]
+	[ <a href="elementindex_default.html#m">m</a> ]
 	[ <a href="elementindex_default.html#o">o</a> ]
 	[ <a href="elementindex_default.html#p">p</a> ]
 	[ <a href="elementindex_default.html#r">r</a> ]
 	[ <a href="elementindex_default.html#u">u</a> ]
-	[ <a href="elementindex_default.html#x">x</a> ]
 	[ <a href="elementindex_default.html#_">_</a> ]
 
   <hr />
@@ -73,13 +76,13 @@
 		<h2>_</h2>
 		<dl>
 							<dt><b>__construct</b></dt>
-				<dd>in file Response.php, method <a href="default/Presta_Response.html#method__construct">Presta_Response::__construct()</a></dd>
+				<dd>in file Response.php, method <a href="default/Response.html#method__construct">Response::__construct()</a></dd>
 							<dt><b>__construct</b></dt>
-				<dd>in file Request.php, method <a href="default/Presta_Request.html#method__construct">Presta_Request::__construct()</a></dd>
+				<dd>in file Request.php, method <a href="default/Request.html#method__construct">Request::__construct()</a></dd>
 							<dt><b>__get</b></dt>
-				<dd>in file Response.php, method <a href="default/Presta_Response.html#method__get">Presta_Response::__get()</a></dd>
+				<dd>in file Response.php, method <a href="default/Response.html#method__get">Response::__get()</a></dd>
 							<dt><b>__get</b></dt>
-				<dd>in file Request.php, method <a href="default/Presta_Request.html#method__get">Presta_Request::__get()</a></dd>
+				<dd>in file Request.php, method <a href="default/Request.html#method__get">Request::__get()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Generalized Getter for any of $this-&gt;getable_attributes</dd>
 					</dl>
 	</div>
 	<a href="elementindex_default.html#top">top</a><br>
@@ -88,10 +91,12 @@
 	<div>
 		<h2>a</h2>
 		<dl>
+							<dt><b>Arr</b></dt>
+				<dd>in file Arr.php, class <a href="default/Arr.html">Arr</a><br>&nbsp;&nbsp;&nbsp;&nbsp;General purpose static utility methods</dd>
 							<dt><b>attributes</b></dt>
-				<dd>in file Response.php, method <a href="default/Presta_Response.html#methodattributes">Presta_Response::attributes()</a></dd>
+				<dd>in file Response.php, method <a href="default/Response.html#methodattributes">Response::attributes()</a></dd>
 							<dt><b>auth</b></dt>
-				<dd>in file Request.php, method <a href="default/Presta_Request.html#methodauth">Presta_Request::auth()</a></dd>
+				<dd>in file Request.php, method <a href="default/Request.html#methodauth">Request::auth()</a></dd>
 							<dt><b>Arr.php</b></dt>
 				<dd>procedural page <a href="default/_util---Arr.php.html">Arr.php</a></dd>
 					</dl>
@@ -102,6 +107,8 @@
 	<div>
 		<h2>c</h2>
 		<dl>
+							<dt><b>Curler</b></dt>
+				<dd>in file Curler.php, class <a href="default/Curler.html">Curler</a></dd>
 							<dt><b>Curler.php</b></dt>
 				<dd>procedural page <a href="default/_Curler.php.html">Curler.php</a></dd>
 					</dl>
@@ -113,7 +120,7 @@
 		<h2>d</h2>
 		<dl>
 							<dt><b>delete</b></dt>
-				<dd>in file Request.php, method <a href="default/Presta_Request.html#methoddelete">Presta_Request::delete()</a></dd>
+				<dd>in file Request.php, method <a href="default/Request.html#methoddelete">Request::delete()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Invoke the DELETE HTTP method</dd>
 					</dl>
 	</div>
 	<a href="elementindex_default.html#top">top</a><br>
@@ -123,9 +130,9 @@
 		<h2>g</h2>
 		<dl>
 							<dt><b>get</b></dt>
-				<dd>in file Request.php, method <a href="default/Presta_Request.html#methodget">Presta_Request::get()</a></dd>
+				<dd>in file Request.php, method <a href="default/Request.html#methodget">Request::get()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Invoke the GET HTTP method</dd>
 							<dt><b>get</b></dt>
-				<dd>in file Arr.php, method <a href="default/Util_Arr.html#methodget">Util_Arr::get()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Safe array getter method for those of us how tire of isset(...)?...:...;</dd>
+				<dd>in file Arr.php, method <a href="default/Arr.html#methodget">Arr::get()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Safe array getter method for those of us how tire of isset(...)?...:...;</dd>
 					</dl>
 	</div>
 	<a href="elementindex_default.html#top">top</a><br>
@@ -135,11 +142,13 @@
 		<h2>h</h2>
 		<dl>
 							<dt><b>head</b></dt>
-				<dd>in file Request.php, method <a href="default/Presta_Request.html#methodhead">Presta_Request::head()</a></dd>
+				<dd>in file Request.php, method <a href="default/Request.html#methodhead">Request::head()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Invoke the HEAD HTTP method</dd>
 							<dt><b>header</b></dt>
-				<dd>in file Response.php, method <a href="default/Presta_Response.html#methodheader">Presta_Response::header()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;get access to a single entity header value.</dd>
+				<dd>in file Response.php, method <a href="default/Response.html#methodheader">Response::header()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;get access to a single entity header value.</dd>
 							<dt><b>headers</b></dt>
-				<dd>in file Request.php, method <a href="default/Presta_Request.html#methodheaders">Presta_Request::headers()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Allow the entity headers to be set for the request</dd>
+				<dd>in file Response.php, method <a href="default/Response.html#methodheaders">Response::headers()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;getter for all headers</dd>
+							<dt><b>headers</b></dt>
+				<dd>in file Request.php, method <a href="default/Request.html#methodheaders">Request::headers()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Allow the entity headers to be set for the request</dd>
 					</dl>
 	</div>
 	<a href="elementindex_default.html#top">top</a><br>
@@ -149,7 +158,17 @@
 		<h2>i</h2>
 		<dl>
 							<dt><b>instance</b></dt>
-				<dd>in file Request.php, method <a href="default/Presta_Request.html#methodinstance">Presta_Request::instance()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return a static instance of Presta.</dd>
+				<dd>in file Request.php, method <a href="default/Request.html#methodinstance">Request::instance()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Return a static instance of Presta.</dd>
+					</dl>
+	</div>
+	<a href="elementindex_default.html#top">top</a><br>
+  <hr />
+	<a name="m"></a>
+	<div>
+		<h2>m</h2>
+		<dl>
+							<dt><b>make_request</b></dt>
+				<dd>in file Curler.php, method <a href="default/Curler.html#methodmake_request">Curler::make_request()</a></dd>
 					</dl>
 	</div>
 	<a href="elementindex_default.html#top">top</a><br>
@@ -159,7 +178,7 @@
 		<h2>o</h2>
 		<dl>
 							<dt><b>options</b></dt>
-				<dd>in file Request.php, method <a href="default/Presta_Request.html#methodoptions">Presta_Request::options()</a></dd>
+				<dd>in file Request.php, method <a href="default/Request.html#methodoptions">Request::options()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Invoke the OPTIONS HTTP method</dd>
 					</dl>
 	</div>
 	<a href="elementindex_default.html#top">top</a><br>
@@ -168,20 +187,16 @@
 	<div>
 		<h2>p</h2>
 		<dl>
+							<dt><b>parsed_headers</b></dt>
+				<dd>in file Response.php, method <a href="default/Response.html#methodparsed_headers">Response::parsed_headers()</a></dd>
 							<dt><b>parse_header_block</b></dt>
-				<dd>in file Curler.php, method <a href="default/Presta_Curler.html#methodparse_header_block">Presta_Curler::parse_header_block()</a></dd>
+				<dd>in file Response.php, method <a href="default/Response.html#methodparse_header_block">Response::parse_header_block()</a></dd>
 							<dt><b>parse_response</b></dt>
-				<dd>in file Curler.php, method <a href="default/Presta_Curler.html#methodparse_response">Presta_Curler::parse_response()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Pick the response apart.</dd>
+				<dd>in file Response.php, method <a href="default/Response.html#methodparse_response">Response::parse_response()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Pick the response apart.</dd>
 							<dt><b>post</b></dt>
-				<dd>in file Request.php, method <a href="default/Presta_Request.html#methodpost">Presta_Request::post()</a></dd>
-							<dt><b>Presta_Curler</b></dt>
-				<dd>in file Curler.php, class <a href="default/Presta_Curler.html">Presta_Curler</a></dd>
-							<dt><b>Presta_Request</b></dt>
-				<dd>in file Request.php, class <a href="default/Presta_Request.html">Presta_Request</a></dd>
-							<dt><b>Presta_Response</b></dt>
-				<dd>in file Response.php, class <a href="default/Presta_Response.html">Presta_Response</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Very simple class to wrap the HTTP response.</dd>
+				<dd>in file Request.php, method <a href="default/Request.html#methodpost">Request::post()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Invoke the POST HTTP method</dd>
 							<dt><b>put</b></dt>
-				<dd>in file Request.php, method <a href="default/Presta_Request.html#methodput">Presta_Request::put()</a></dd>
+				<dd>in file Request.php, method <a href="default/Request.html#methodput">Request::put()</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Invoke the PUT HTTP method</dd>
 					</dl>
 	</div>
 	<a href="elementindex_default.html#top">top</a><br>
@@ -190,10 +205,16 @@
 	<div>
 		<h2>r</h2>
 		<dl>
+							<dt><b>Request</b></dt>
+				<dd>in file Request.php, class <a href="default/Request.html">Request</a></dd>
 							<dt><b>Request.php</b></dt>
 				<dd>procedural page <a href="default/_Request.php.html">Request.php</a></dd>
+							<dt><b>Response</b></dt>
+				<dd>in file Response.php, class <a href="default/Response.html">Response</a><br>&nbsp;&nbsp;&nbsp;&nbsp;Very simple class to wrap the HTTP response.</dd>
 							<dt><b>Response.php</b></dt>
 				<dd>procedural page <a href="default/_Response.php.html">Response.php</a></dd>
+							<dt><b>response_has_headers</b></dt>
+				<dd>in file Curler.php, method <a href="default/Curler.html#methodresponse_has_headers">Curler::response_has_headers()</a></dd>
 					</dl>
 	</div>
 	<a href="elementindex_default.html#top">top</a><br>
@@ -203,25 +224,13 @@
 		<h2>u</h2>
 		<dl>
 							<dt><b>uri</b></dt>
-				<dd>in file Request.php, method <a href="default/Presta_Request.html#methoduri">Presta_Request::uri()</a></dd>
-							<dt><b>Util_Arr</b></dt>
-				<dd>in file Arr.php, class <a href="default/Util_Arr.html">Util_Arr</a><br>&nbsp;&nbsp;&nbsp;&nbsp;General purpose static utility methods</dd>
-					</dl>
-	</div>
-	<a href="elementindex_default.html#top">top</a><br>
-  <hr />
-	<a name="x"></a>
-	<div>
-		<h2>x</h2>
-		<dl>
-							<dt><b>xmit</b></dt>
-				<dd>in file Curler.php, method <a href="default/Presta_Curler.html#methodxmit">Presta_Curler::xmit()</a></dd>
+				<dd>in file Request.php, method <a href="default/Request.html#methoduri">Request::uri()</a></dd>
 					</dl>
 	</div>
 	<a href="elementindex_default.html#top">top</a><br>
         <div class="credit">
 		    <hr />
-		    Documentation generated on Fri, 06 Apr 2012 22:49:22 -0700 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Sat, 07 Apr 2012 11:12:03 -0700 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

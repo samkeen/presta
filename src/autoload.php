@@ -4,10 +4,10 @@ spl_autoload_register(
       static $classes = null;
       if ($classes === null) {
          $classes = array(
-            'presta_curler' => '/Curler.php',
-                'presta_request' => '/Request.php',
-                'presta_response' => '/Response.php',
-                'util_arr' => '/util/Arr.php'
+            'presta\\curler' => '/Curler.php',
+                'presta\\request' => '/Request.php',
+                'presta\\response' => '/Response.php',
+                'presta\\util\\arr' => '/util/Arr.php'
           );
       }
       $cn = strtolower($class);

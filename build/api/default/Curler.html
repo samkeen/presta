@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Docs For Class Presta_Curler</title>
+<title>Docs For Class Curler</title>
 <link rel="stylesheet" type="text/css" href="../media/style.css">
 </head>
 <body>
@@ -25,6 +25,9 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr valign="top">
     <td width="200" class="menu">
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
       <b>Packages:</b><br />
               <a href="../li_default.html">default</a><br />
             <br /><br />
@@ -43,16 +46,16 @@
       
             <b>Classes:</b><br />
         <div class="package">
-		    		<a href="../default/Presta_Curler.html">Presta_Curler</a><br />
-	    		<a href="../default/Presta_Request.html">Presta_Request</a><br />
-	    		<a href="../default/Presta_Response.html">Presta_Response</a><br />
-	    		<a href="../default/Util_Arr.html">Util_Arr</a><br />
+		    		<a href="../default/Arr.html">Arr</a><br />
+	    		<a href="../default/Curler.html">Curler</a><br />
+	    		<a href="../default/Request.html">Request</a><br />
+	    		<a href="../default/Response.html">Response</a><br />
 	  </div>
                 </td>
     <td>
       <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
 
-<h1>Class: Presta_Curler</h1>
+<h1>Class: Curler</h1>
 Source Location: /Curler.php<br /><br />
 
 
@@ -65,12 +68,12 @@ Source Location: /Curler.php<br /><br />
 <h4>Author(s):</h4>
 <ul>
           <li>@samkeen</li>
-      </ul>
+            </ul>
 
 
 
 
-    
+        
 
         
 </td>
@@ -80,9 +83,8 @@ Source Location: /Curler.php<br /><br />
 <td valign="top">
 <h3><a href="#class_methods">Methods</a></h3>
 <ul>
-    <li><a href="../default/Presta_Curler.html#methodparse_header_block">parse_header_block</a></li>
-    <li><a href="../default/Presta_Curler.html#methodparse_response">parse_response</a></li>
-    <li><a href="../default/Presta_Curler.html#methodxmit">xmit</a></li>
+    <li><a href="../default/Curler.html#methodmake_request">make_request</a></li>
+    <li><a href="../default/Curler.html#methodresponse_has_headers">response_has_headers</a></li>
   </ul>
 </td>
 
@@ -102,13 +104,16 @@ Source Location: /Curler.php<br /><br />
 <a name="class_details"></a>
 <h3>Class Details</h3>
 <div class="tags">
-[line 18]<br />
+[line 19]<br />
 <br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td><b>author:</b>&nbsp;&nbsp;</td><td>@samkeen</td>
+  </tr>
+  <tr>
+    <td><b>todo:</b>&nbsp;&nbsp;</td><td>Look through these and provide shortcut names for the most common ones.         This will keep casual users from having to look up CURL OPT codes, but         we will still accept Actual codes for the more experienced users</td>
   </tr>
 </table>
 </div>
@@ -121,98 +126,12 @@ Source Location: /Curler.php<br /><br />
 <h3>Class Methods</h3>
 <div class="tags">
   <hr />
-	<a name="methodparse_header_block"></a>
-	<h3>static method parse_header_block <span class="smalllinenumber">[line 184]</span></h3>
+	<a name="methodmake_request"></a>
+	<h3>static method make_request <span class="smalllinenumber">[line 38]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>static array parse_header_block(
-<type>
-$header_block)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		<br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td><ol><li><div class="src-line">&nbsp;<span class="src-id">ex</span>:</div></li>
-<li><div class="src-line">&nbsp;<span class="src-key">Array</span></div></li>
-</ol></td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type"><type>&nbsp;&nbsp;</td>
-        <td><b>$header_block</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodparse_response"></a>
-	<h3>static method parse_response <span class="smalllinenumber">[line 127]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>static array parse_response(
-string
-$http_response, boolean
-$resp_includes_headers)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-	
-		Pick the response apart.<br /><br /><p>Separate the Headers from the Enitiy Body if both were returned.</p><p>Tokenize headers into an array,</p><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>ex: array(      'status_code'  =&gt; '',      'status_label' =&gt; '',      'http_version' =&gt; '',      'headers'      =&gt; array(), // all keys are lowercase'd      'header_blocks'=&gt; array(),      'entity_body'  =&gt; '...'    )</td>
-  </tr>
-  <tr>
-    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
-  </tr>
-</table>
-</div>
-<br /><br />
-
-	
-        <h4>Parameters:</h4>
-    <div class="tags">
-    <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-        <td class="type">string&nbsp;&nbsp;</td>
-        <td><b>$http_response</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-          <tr>
-        <td class="type">boolean&nbsp;&nbsp;</td>
-        <td><b>$resp_includes_headers</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-        </table>
-    </div><br />
-        <div class="top">[ <a href="#top">Top</a> ]</div>
-  </div>
-  <hr />
-	<a name="methodxmit"></a>
-	<h3>static method xmit <span class="smalllinenumber">[line 37]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>static array xmit(
+		<code>static array make_request(
 string
 $http_method, string
 $url, [array
@@ -266,13 +185,29 @@ $entity_body = null])</code>
     </div><br />
         <div class="top">[ <a href="#top">Top</a> ]</div>
   </div>
+  <hr />
+	<a name="methodresponse_has_headers"></a>
+	<h3>static method response_has_headers <span class="smalllinenumber">[line 111]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static bool response_has_headers(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
 
 </div><br />
 
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Fri, 06 Apr 2012 22:49:22 -0700 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
+		    Documentation generated on Sat, 07 Apr 2012 11:12:04 -0700 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.4</a>
 	      </div>
       </td></tr></table>
     </td>

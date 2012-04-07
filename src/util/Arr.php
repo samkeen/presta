@@ -2,14 +2,14 @@
 /* 
  * Utility Arr class
  */
-
+namespace Presta\Util;
 /**
  * General purpose static utility methods
  *
  * @author samkeen
  */
 
-class Util_Arr {
+class Arr {
 
     /**
      * Safe array getter method for those of us how tire of isset(...)?...:...;

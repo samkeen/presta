@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pmd version="1.2.1" timestamp="2012-04-06T22:49:18-07:00">
+<pmd version="1.2.1" timestamp="2012-04-07T11:11:57-07:00">
   <file name="/Users/sam/Projects/presta/src/Curler.php">
-    <violation beginline="37" endline="108" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="Presta_Curler" method="xmit" priority="3">
-      The method xmit() has a Cyclomatic Complexity of 14. The configured cyclomatic complexity threshold is 10.
+    <violation beginline="38" endline="106" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="Presta" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="Curler" method="make_request" priority="3">
+      The method make_request() has a Cyclomatic Complexity of 14. The configured cyclomatic complexity threshold is 10.
     </violation>
-    <violation beginline="37" endline="108" rule="NPathComplexity" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="Presta_Curler" method="xmit" priority="3">
-      The method xmit() has an NPath complexity of 360. The configured NPath complexity threshold is 200.
+    <violation beginline="38" endline="106" rule="NPathComplexity" ruleset="Code Size Rules" package="Presta" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="Curler" method="make_request" priority="3">
+      The method make_request() has an NPath complexity of 360. The configured NPath complexity threshold is 200.
     </violation>
-    <violation beginline="138" endline="138" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
-      Avoid unused local variables such as '$processed_headers'.
+  </file>
+  <file name="/Users/sam/Projects/presta/src/Response.php">
+    <violation beginline="83" endline="83" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$resp_includes_headers'.
     </violation>
   </file>
 </pmd>

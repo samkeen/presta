@@ -1,28 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PDepend>
   <Packages>
-    <Package name="+global">
+    <Package name="Presta">
       <Stats>
-        <TotalClasses>5</TotalClasses>
-        <ConcreteClasses>5</ConcreteClasses>
+        <TotalClasses>3</TotalClasses>
+        <ConcreteClasses>3</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>0</Ca>
-        <Ce>1</Ce>
+        <Ce>2</Ce>
         <A>0</A>
         <I>1</I>
         <D>0</D>
       </Stats>
       <ConcreteClasses>
-        <Class sourceFile="/Users/sam/Projects/presta/src/Curler.php">Presta_Curler</Class>
-        <Class sourceFile="/Users/sam/Projects/presta/src/Request.php">Presta_Request</Class>
-        <Class sourceFile="/Users/sam/Projects/presta/src/Response.php">Presta_Response</Class>
-        <Class sourceFile="/Users/sam/Projects/presta/src/util/Arr.php">Util_Arr</Class>
+        <Class sourceFile="/Users/sam/Projects/presta/src/Curler.php">Curler</Class>
+        <Class sourceFile="/Users/sam/Projects/presta/src/Request.php">Request</Class>
+        <Class sourceFile="/Users/sam/Projects/presta/src/Response.php">Response</Class>
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
-        <Package>+core</Package>
+        <Package></Package>
+        <Package>Presta\Util</Package>
       </DependsUpon>
       <UsedBy/>
+    </Package>
+    <Package name="Presta\Util">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>1</Ca>
+        <Ce>0</Ce>
+        <A>0</A>
+        <I>0</I>
+        <D>1</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/Users/sam/Projects/presta/src/util/Arr.php">Arr</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon/>
+      <UsedBy>
+        <Package>Presta</Package>
+      </UsedBy>
     </Package>
   </Packages>
   <Cycles/>
