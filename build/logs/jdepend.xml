@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PDepend>
+  <Packages>
+    <Package name="+global">
+      <Stats>
+        <TotalClasses>5</TotalClasses>
+        <ConcreteClasses>5</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>1</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/Users/sam/Projects/presta/src/Curler.php">Presta_Curler</Class>
+        <Class sourceFile="/Users/sam/Projects/presta/src/Request.php">Presta_Request</Class>
+        <Class sourceFile="/Users/sam/Projects/presta/src/Response.php">Presta_Response</Class>
+        <Class sourceFile="/Users/sam/Projects/presta/src/util/Arr.php">Util_Arr</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>+core</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+  </Packages>
+  <Cycles/>
+</PDepend>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Presta" tests="14" assertions="60" failures="0" errors="0" time="0.523236">
+    <testsuite name="Presta_CurlerTest" file="/Users/sam/Projects/presta/tests/CurlerTest.php" fullPackage="Presta" tests="13" assertions="58" failures="0" errors="0" time="0.082367">
+      <testcase name="testParse_Response_2Header_ProperKeys" class="Presta_CurlerTest" file="/Users/sam/Projects/presta/tests/CurlerTest.php" line="44" assertions="6" time="0.006761"/>
+      <testcase name="testParse_Response_2Header_ProperHTTPDeclarationElements" class="Presta_CurlerTest" file="/Users/sam/Projects/presta/tests/CurlerTest.php" line="54" assertions="3" time="0.014223"/>
+      <testcase name="testParse_Response_2Header_ProperHeader_Blocks" class="Presta_CurlerTest" file="/Users/sam/Projects/presta/tests/CurlerTest.php" line="61" assertions="9" time="0.010053"/>
+      <testcase name="testParse_Response_2Header_ProperHeaders" class="Presta_CurlerTest" file="/Users/sam/Projects/presta/tests/CurlerTest.php" line="79" assertions="7" time="0.012504"/>
+      <testcase name="testParse_Response_2Header_BodyNotEmpty" class="Presta_CurlerTest" file="/Users/sam/Projects/presta/tests/CurlerTest.php" line="91" assertions="1" time="0.003172"/>
+      <testcase name="testParse_Response_1Header_ProperKeys" class="Presta_CurlerTest" file="/Users/sam/Projects/presta/tests/CurlerTest.php" line="101" assertions="6" time="0.004022"/>
+      <testcase name="testParse_Response_1Header_ProperHTTPDeclarationElements" class="Presta_CurlerTest" file="/Users/sam/Projects/presta/tests/CurlerTest.php" line="111" assertions="3" time="0.004895"/>
+      <testcase name="testParse_Response_1Header_ProperHeader_Blocks" class="Presta_CurlerTest" file="/Users/sam/Projects/presta/tests/CurlerTest.php" line="118" assertions="5" time="0.005949"/>
+      <testcase name="testParse_Response_1Header_ProperHeaders" class="Presta_CurlerTest" file="/Users/sam/Projects/presta/tests/CurlerTest.php" line="131" assertions="7" time="0.007347"/>
+      <testcase name="testParse_Response_1Header_BodyNotEmpty" class="Presta_CurlerTest" file="/Users/sam/Projects/presta/tests/CurlerTest.php" line="143" assertions="1" time="0.002919"/>
+      <testcase name="testParse_Response_1Header_NoBody_ProperKeys" class="Presta_CurlerTest" file="/Users/sam/Projects/presta/tests/CurlerTest.php" line="152" assertions="6" time="0.003606"/>
+      <testcase name="testParse_Response_1Header_NoBody_ProperHTTPDeclarationElements" class="Presta_CurlerTest" file="/Users/sam/Projects/presta/tests/CurlerTest.php" line="162" assertions="3" time="0.004467"/>
+      <testcase name="testParse_Response_1Header_NoBody_BodyIsEmpty" class="Presta_CurlerTest" file="/Users/sam/Projects/presta/tests/CurlerTest.php" line="170" assertions="1" time="0.002449"/>
+    </testsuite>
+    <testsuite name="RequestTest" file="/Users/sam/Projects/presta/tests/RequestTest.php" tests="1" assertions="2" failures="0" errors="0" time="0.440869">
+      <testcase name="testGet" class="RequestTest" file="/Users/sam/Projects/presta/tests/RequestTest.php" line="72" assertions="2" time="0.440869"/>
+    </testsuite>
+    <testsuite name="Presta_ResponseTest" file="/Users/sam/Projects/presta/tests/ResponseTest.php" fullPackage="Presta" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+    <testsuite name="Util_ArrTest" file="/Users/sam/Projects/presta/tests/Util_ArrTest.php" fullPackage="Util" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+  </testsuite>
+</testsuites>
