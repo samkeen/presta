@@ -2,7 +2,7 @@
 
 <project name="Presta" default="build">
     <target name="build"
-            depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpunit,phpdoc,phpcb"/>
+            depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpunit,phpdoc,phpcb, summary"/>
 
     <property name="testdir" value="${basedir}/tests"/>
     <property name="srcdir" value="${basedir}/src"/>
@@ -265,4 +265,9 @@
             <arg path="${builddir}/code-browser"/>
         </exec>
     </target>
+
+    <target name="summary">
+        <echo message="###&gt; Links to results from this build available at: ${builddir}/index.html"></echo>
+    </target>
+    
 </project>

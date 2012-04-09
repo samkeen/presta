@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Application Links</title>
+</head>
+<body>
+    <h1>Build Process Artifacts</h1>
+    <p>Every time you run build, all of this documentation is destroyed and recreated</p>
+    <p>So from the top directory (where the build.xml file is) run ant to generate these artifacts.</p>
+    <pre>
+        
+        $ ant
+        
+        Buildfile: /Users/sam/Projects/banner/build.xml
+        
+        requirements:
+             [echo] Found required executable: /usr/local/Cellar/php/5.3.6/bin/phpab
+             [echo] Found required executable: /usr/local/Cellar/php/5.3.6/bin/phploc
+        
+        
+          ...
+        
+        
+        [exec] done
+        
+        phpcb:
+        
+        build:
+        
+        BUILD SUCCESSFUL
+        Total time: 13 seconds
+    </pre>
+    <p>None of this documentation in persisted in source control.</p>
+	<dl>
+	  <dt>Documentation</dt>
+	    <dd>
+            <a href="api/index.html">Code Documentation (phpdocumentor)</a>
+	    </dd>
+        <dd>
+            <a href="api/errors.html">Documentation Errors</a>
+	    </dd>
+	  <dt>Code</dt>
+	    <dd>
+            <a href="code-browser/index.html">Code Browser</a>
+	    </dd>
+        <dd>
+            <a href="coverage/index.dashboard.html">Code Coverage Dashboard</a>
+	    </dd>
+        <dd>
+            <a href="coverage/index.html">Code Coverage Charts</a>
+	    </dd>
+	</dl>
+</body>
+</html>
