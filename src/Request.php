@@ -208,7 +208,7 @@ class Request {
      * @param string|null $entity_body
      * @return Response
      */
-    private function make_http_request($http_method, $entity_body = null)
+    protected function make_http_request($http_method, $entity_body = null)
     {
         $http_response = Curler::make_request(
             $http_method,
