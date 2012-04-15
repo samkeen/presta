@@ -44,6 +44,14 @@ class Response {
         return $this->attributes['headers']['headers'];
     }
     /**
+     * Shortcut method to get the entity body of the response
+     * @return string
+     */
+    function body()
+    {
+        return $this->attributes['entity_body'];
+    }
+    /**
      *
      * @return array The attributes available in this class
      */
@@ -55,8 +63,7 @@ class Response {
     {
         return $this->attributes;
     }
-    function  __get
-    ($name)
+    function __get($name)
     {
         return array_key_exists($name, $this->attributes)
             ? $this->attributes[$name]
